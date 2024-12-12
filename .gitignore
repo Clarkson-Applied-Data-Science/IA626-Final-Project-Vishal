@@ -3,6 +3,17 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Datasets
+Accidents.csv
+Casualties.csv
+cleaned_accident.csv
+cleaned_casualty.csv
+cleaned_vehicle.csv
+Vehicles.csv
+Road-Accident-Safety-Data-Guide.xls
+config.py
+
+
 # C extensions
 *.so
 
