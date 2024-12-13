@@ -16,6 +16,8 @@ This project is ideal for policymakers, traffic authorities, and researchers to 
   - Uses accident latitude and longitude for plotting.
   - Heat intensity represents accident severity (higher intensity = more severe).
 - **Use Case**: Identify geographic hotspots of accidents to prioritize safety measures.
+- **Image**:
+  ![Accident Heatmap](images/Heatmap.png)
 
 ---
 
@@ -29,6 +31,8 @@ This project is ideal for policymakers, traffic authorities, and researchers to 
 - **Details**:
   - Highlights the distribution of casualties based on severity.
   - Enables prioritization of resources for the most critical accident categories.
+- **Image**:
+  ![Casualties Chart](images/Accident%20severity.png)
 
 ---
 
@@ -48,6 +52,8 @@ This project is ideal for policymakers, traffic authorities, and researchers to 
 - **Details**:
   - Demonstrates the impact of weather conditions on accidents.
   - Provides actionable insights for weather-related traffic safety measures.
+- **Image**:
+  ![Accidents by Weather](images/Accident%20by%20Weather.png)
 
 ---
 
@@ -60,17 +66,39 @@ This project is ideal for policymakers, traffic authorities, and researchers to 
 - **Details**:
   - Provides demographic insights into casualty data.
   - Helps design gender-specific awareness campaigns for road safety.
+- **Image**:
+  ![Casualties by Sex](images/Casualties%20by%20Sex.png)
 
 ---
 
 ### 5. Vehicle Types
 - **Purpose**: Display the count of vehicles involved in accidents categorized by type.
 - **X-Axis**: Vehicle types:
-  - Examples include Cars, Motorcycles, Bicycles, etc.
+  - `1`: Pedal Cycle.
+  - `2`: Motorcycle 50cc and under.
+  - `3`: Motorcycle 125cc and under.
+  - `4`: Motorcycle over 125cc.
+  - `5`: Motorcycle over 500cc.
+  - `8`: Taxi/Private hire car.
+  - `9`: Car.
+  - `10`: Minibus.
+  - `11`: Bus or coach (17 or more passengers).
+  - `16`: Agricultural vehicle.
+  - `17`: Tram.
+  - `18`: Van/Goods vehicle (3.5 tonnes mgw and under).
+  - `19`: Goods vehicle (over 3.5 tonnes).
+  - `20`: Mobility scooter.
+  - `21`: Electric scooter.
+  - `22`: Other vehicle.
+  - `23`: Ridden horse.
+  - `97`: Motor vehicle (type unknown).
+  - `98`: Non-motor vehicle (type unknown).
 - **Y-Axis**: Number of vehicles involved in accidents for each type.
 - **Details**:
   - Identifies high-risk vehicle categories for targeted interventions.
   - Provides insights into traffic compositions and accident trends.
+- **Image**:
+  ![Vehicle Types](images/Vehicle%20type.png)
 
 ---
 
@@ -85,6 +113,8 @@ This project is ideal for policymakers, traffic authorities, and researchers to 
 - **Details**:
   - Identifies seasonal or monthly patterns in accident severity.
   - Helps allocate resources based on temporal trends.
+- **Image**:
+  ![Accident Severity by Month](images/Accident%20by%20month.png)
 
 ---
 
@@ -121,6 +151,35 @@ This project is ideal for policymakers, traffic authorities, and researchers to 
 
 ---
 
+## Dataset Description
+
+### Columns Overview
+
+#### **Accidents Dataset**
+- **Accident_Index**: Unique identifier for each accident record.
+- **Longitude**: Longitude coordinates of the accident location.
+- **Latitude**: Latitude coordinates of the accident location.
+- **Accident_Severity**: Code representing accident severity (1: Fatal, 2: Serious, 3: Slight).
+- **Date**: Date when the accident occurred.
+- **Weather_Conditions**: Numeric code indicating weather conditions (e.g., 1: Fine, 2: Raining, etc.).
+- **Road_Surface_Conditions**: Surface conditions during the accident (e.g., dry, wet).
+- **Light_Conditions**: Lighting conditions at the time of the accident (e.g., daylight, darkness).
+- **Number_of_Casualties**: Total number of casualties reported for the accident.
+- **Number_of_Vehicles**: Total number of vehicles involved in the accident.
+
+#### **Vehicles Dataset**
+- **Vehicle_Type**: Type of vehicle involved in the accident (see Vehicle Types plot legend).
+- **Vehicle_Manoeuvre**: Description of vehicle maneuver at the time of the accident.
+- **Skidding_and_Overturning**: Indicates whether the vehicle skidded or overturned.
+
+#### **Casualties Dataset**
+- **Casualty_Severity**: Code indicating the severity of casualty injuries (1: Fatal, 2: Serious, 3: Slight).
+- **Sex_of_Casualty**: Gender of the casualty (1: Male, 2: Female, -1: Unknown).
+- **Age_of_Casualty**: Age of the casualty at the time of the accident.
+- **Casualty_Class**: Classification of the casualty (e.g., pedestrian, driver, passenger).
+
+---
+
 ## Installation Instructions
 
 1. **Clone the Repository**:
@@ -152,26 +211,5 @@ This project is ideal for policymakers, traffic authorities, and researchers to 
 
 5. **Access the Application**:
    - Open your browser and navigate to `http://127.0.0.1:5000`.
-
----
-
-## Directory Structure
-
-```
-.
-├── app.py               # Main Flask application
-├── templates/           # HTML templates for rendering pages
-│   ├── index.html
-│   ├── accident_heatmap.html
-│   ├── casualties_chart.html
-│   ├── chart.html
-│   ├── weather_chart.html
-│   └── ...
-├── static/              # Static files (CSS, JavaScript, images)
-├── insert.ipynb         # Script for populating the database
-├── config.py            # Configuration file for database and app settings
-├── README.md            # This README file
-└── requirements.txt     # Python dependencies
-```
 
 ---
